@@ -1,0 +1,109 @@
+/* 기본 설정 */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #050505;
+    /* 완전 검정보다는 아주 깊은 회색이 고급스러움 */
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    /* 디지털 느낌 폰트 */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* 왼쪽 메뉴 영역 */
+.menu-overlay {
+    width: 40%;
+    /* 화면의 40% 차지 */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+    z-index: 10;
+    /* 3D보다 위에 뜨도록 */
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    font-size: 4rem;
+    /* 큰 텍스트 */
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.3);
+    /* 평소엔 약간 어둡게 */
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.2s;
+    position: relative;
+    white-space: nowrap;
+
+    /* 그라데이션 배경을 위한 설정 */
+    background: transparent;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+    /* 약간 사선 컷팅 */
+}
+
+/* 마우스 올렸을 때 */
+.menu-item:hover {
+    color: #ffffff;
+}
+
+/* 자바스크립트로 활성화될 때 (랜덤 RGB 효과) */
+.menu-item.glitch-active {
+    color: #ffffff;
+    /* 배경은 JS에서 인라인 스타일로 랜덤 RGB 그라데이션을 줍니다 */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* 오른쪽 3D 캔버스 영역 */
+#canvas-container {
+    width: 60%;
+    /* 화면의 60% 차지 */
+    height: 100%;
+    position: relative;
+}
+
+canvas {
+    display: block;
+    outline: none;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .menu-overlay {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        order: 2;
+    }
+
+    .menu-item {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    #canvas-container {
+        width: 100%;
+        height: 50vh;
+        order: 1;
+    }
+}
