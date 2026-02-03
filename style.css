@@ -12,6 +12,20 @@ html {
     /* 디지털 느낌 폰트 */
 }
 
+/* 로고 헤더 */
+.logo-header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
 .container {
     display: flex;
     width: 100%;
